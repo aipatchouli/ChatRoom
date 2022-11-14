@@ -1,6 +1,5 @@
-#include "../include/client.hpp"
-
+#include "../include/client.h"
 int main() {
-    client client1(10086, "127.0.0.1");
-    client1.run();    
+    client clnt(100100, "127.0.0.1");
+    clnt.run();
 }

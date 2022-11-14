@@ -1,6 +1,6 @@
-#include "../include/server.hpp"
+#include "../include/server.h"
 
 int main() {
-    server server1(10086, "127.0.0.1");
-    server1.run();
+    server serv(100100, "127.0.0.1");
+    serv.run();
 }

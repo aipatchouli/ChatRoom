@@ -1,4 +1,4 @@
-/home/patchy/文档/C++_PROJECT/ChatRoom/build/CMakeFiles/client.dir
 /home/patchy/文档/C++_PROJECT/ChatRoom/build/CMakeFiles/server.dir
+/home/patchy/文档/C++_PROJECT/ChatRoom/build/CMakeFiles/client.dir
 /home/patchy/文档/C++_PROJECT/ChatRoom/build/CMakeFiles/edit_cache.dir
 /home/patchy/文档/C++_PROJECT/ChatRoom/build/CMakeFiles/rebuild_cache.dir
