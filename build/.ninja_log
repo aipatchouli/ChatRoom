@@ -1,0 +1,9 @@
+# ninja log v5
+1	751	1668417336170544545	CMakeFiles/client.dir/src/test_client.cpp.o	2165a42eeb22fb06
+1	785	1668417336200544205	CMakeFiles/server.dir/src/test_server.cpp.o	b73a92c8fa22ab2e
+2	185	1668417559339017063	CMakeFiles/server.dir/src/test_server.cpp.o	ae4c895039cb60b5
+1	187	1668417559343017023	CMakeFiles/client.dir/src/test_client.cpp.o	cf6fc5b71ae9f10
+2	1022	1668417560170008766	CMakeFiles/client.dir/src/client.cxx.o	74ea919b20626087
+3	1056	1668417560193008537	CMakeFiles/server.dir/src/server.cxx.o	cfb5b4ca8ff1b5c7
+1022	1284	1668417560431006160	/home/patchy/文档/C++_PROJECT/ChatRoom/bin/client	24cf9895cdc05c75
+1056	1319	1668417560472005751	/home/patchy/文档/C++_PROJECT/ChatRoom/bin/server	a1d8c010a6de14f9

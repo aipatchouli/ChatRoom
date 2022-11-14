@@ -14,7 +14,7 @@ public:
 
 private:
     int server_port;
-    int server_sockfd;
+    int server_sockfd{};
     string server_ip;
     std::vector<int> sock_arr;
 };

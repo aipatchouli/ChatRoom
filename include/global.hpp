@@ -17,4 +17,7 @@
 #include <utility>
 #include <vector>
 using string = std::string;
+enum {
+MAXWAIT = 20
+};
 #endif // _GLOBAL_HPP

@@ -11,8 +11,9 @@ include_directories(/usr/local/lib)
 
 # 添加源文件
 aux_source_directory(${PROJECT_SOURCE_DIR}/src DIR_SRCS)
-add_executable ()
 
+add_executable (client ${PROJECT_SOURCE_DIR}/src/test_client.cpp ${PROJECT_SOURCE_DIR}/src/client.cxx)
+add_executable (server ${PROJECT_SOURCE_DIR}/src/test_server.cpp ${PROJECT_SOURCE_DIR}/src/server.cxx)
 
 add_definitions(-DBOOST_ERROR_CODE_HEADER_ONLY)
 
