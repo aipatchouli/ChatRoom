@@ -3,6 +3,7 @@
 
 #include "global.hpp"
 #include <sys/types.h>
+#include <type_traits>
 #include <vector>
 
 class server {
@@ -16,7 +17,7 @@ private:
     int server_port;
     int server_sockfd{};
     string server_ip;
-    std::vector<int> sock_arr;
+    static std::vector<bool> sock_arr;
 };
 
 #endif

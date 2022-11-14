@@ -39,7 +39,15 @@ void client::run() {
 void client::SendMsg(int sock) {
     std::array<char, 1024> sendbuf{};
     auto isexit = [](const std::array<char, 1024>& buf) {
-        return buf.size() == 4 && buf[0] == 'e' && buf[1] == 'x' && buf[2] == 'i' && buf[3] == 't';
+        auto onlyexit = [](const std::array<char, 1024>& buf) {
+            for (int i = 4; i < buf.size(); ++i) {
+                if (buf[i] != '\0') {
+                    return false;
+                }
+            }
+            return true;
+        };
+        return buf[0] == 'e' && buf[1] == 'x' && buf[2] == 'i' && buf[3] == 't' && onlyexit(buf);
     };
     while (true) {
         sendbuf.fill(0);

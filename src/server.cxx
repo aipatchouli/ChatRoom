@@ -1,6 +1,9 @@
+#include <unistd.h>
 #include <utility>
 
 #include "../include/server.hpp"
+
+std::vector<bool> server::sock_arr(1024, false);
 
 server::server(int port, string ip)
     : server_port(port), server_ip(std::move(ip)) {
@@ -8,7 +11,9 @@ server::server(int port, string ip)
 
 server::~server() {
     for (auto sock : sock_arr) {
-        close(sock);
+        if (sock) {
+            close(sock);
+        }
     }
     close(server_sockfd);
 }
@@ -60,15 +65,32 @@ void server::run() {
 void server::RecvMsg(int sock) {
     std::array<char, 1024> buffer{};
     auto isexit = [](const std::array<char, 1024>& buf) {
-        return buf.size() == 4 && buf[0] == 'e' && buf[1] == 'x' && buf[2] == 'i' && buf[3] == 't';
+        auto onlyexit = [](const std::array<char, 1024>& buf) {
+            for (int i = 4; i < buf.size(); ++i) {
+                if (buf[i] != '\0') {
+                    return false;
+                }
+            }
+            return true;
+        };
+        return buf[0] == 'e' && buf[1] == 'x' && buf[2] == 'i' && buf[3] == 't' && onlyexit(buf);
     };
     while (true) {
         buffer.fill(0);
         ssize_t ret = recv(sock, buffer.data(), buffer.size(), 0);
         if (ret <= 0 || isexit(buffer)) {
-            perror("recv");
+            close(sock);
+            sock_arr[sock] = false;
             break;
         }
         std::cout << "Client " << sock << ": " << buffer.data() << std::endl;
+        // 回复
+        string reply = "Server received";
+        int send_ret = send(sock, reply.c_str(), reply.size(), 0);
+        if (send_ret < 0) {
+            close(sock);
+            sock_arr[sock] = false;
+            break;
+        }
     }
 }
