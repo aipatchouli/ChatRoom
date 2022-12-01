@@ -1,4 +1,4 @@
-#include "../include/client.h"
+#include "client.h"
 
 client::client(int port,string ip):server_port(port),server_ip(ip){}
 client::~client(){
@@ -25,12 +25,12 @@ void client::run(){
     cout<<"连接服务器成功\n";
 
     HandleClient(sock);
+
+    return;
 }
 void client::HandleClient(int conn){
     int choice;
-    string name;
-    string pass;
-    string pass1;
+    string name,pass,pass1;
     bool if_login=false;//记录是否登录成功
     string login_name;//记录成功登录的用户名
 
@@ -67,7 +67,7 @@ void client::HandleClient(int conn){
     }
 
     //开始处理注册、登录事件
-    while(true){
+    while(1){
         if(if_login)
            break;
         cin>>choice;
@@ -77,7 +77,7 @@ void client::HandleClient(int conn){
         else if(choice==2){
             cout<<"注册的用户名:";
             cin>>name;
-            while(true){
+            while(1){
                 cout<<"密码:";
                 cin>>pass;
                 cout<<"确认密码:";
@@ -96,7 +96,7 @@ void client::HandleClient(int conn){
         }
         //登录
         else if(choice==1&&!if_login){
-            while(true){
+            while(1){
                 cout<<"用户名:";
                 cin>>name;
                 cout<<"密码:";
@@ -127,7 +127,7 @@ void client::HandleClient(int conn){
         }
     }
     //登陆成功
-    while(if_login&&true){
+    while(if_login&&1){
         if(if_login){
             system("clear");
             cout<<"        欢迎回来,"<<login_name<<endl;
@@ -174,7 +174,7 @@ void client::HandleClient(int conn){
 }
 //注意，前面不用加static！
 void client::SendMsg(int conn){
-    while (true)
+    while (1)
     {
         string str;
         cin>>str;
@@ -197,7 +197,7 @@ void client::RecvMsg(int conn){
     //接收缓冲区
     char buffer[1000];
     //不断接收数据
-    while(true)
+    while(1)
     {
         memset(buffer,0,sizeof(buffer));
         int len = recv(conn, buffer, sizeof(buffer),0);

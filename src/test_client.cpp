@@ -1,6 +1,5 @@
-#include "../include/client.h"
-
-int main() {
-    client clnt(100100, "127.0.0.1");
+#include"client.h"
+int main(){
+    client clnt(8023,"127.0.0.1");
     clnt.run();
 }

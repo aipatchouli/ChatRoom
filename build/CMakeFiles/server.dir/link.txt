@@ -1,1 +1,0 @@
-clang++ CMakeFiles/server.dir/src/test_server.cpp.o CMakeFiles/server.dir/src/server.cxx.o -o /home/patchy/文档/C++_PROJECT/ChatRoom/bin/server 
