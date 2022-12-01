@@ -1,9 +1,14 @@
 #### Tiny ChatRoom
+##### 依赖
+- Redis hiredis
+- MySQL mysql-devel
+- Boost boost-devel
+- Linux epoll
 ##### 使用 C/S 架构    
 + 服务端/客户端均为多线程
-+ 客户端联接到服务器(线程池+epoll)，然后创建 Send 和 Receive 线程
++ 客户端联接到服务器(线程池+epoll)，然后创建 Send 和 Receive 线程(TCP)
 + 服务器使用Redis存储用户信息cookie并验证免密登录，使用MySQL存储用户名和密码
-+ 服务器使用map记录用户信息，实现点对点聊天，使用set记录socket，实现群聊
++ 服务器使用map记录用户信息，实现点对点聊天(线程互斥)，使用set记录socket，实现群聊
 
 ![Procedure](image/Procedure.jpg)
 ![Demo](image/demo.png)
