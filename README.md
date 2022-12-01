@@ -6,6 +6,9 @@
 ##### 业务流
 + 用户注册，帐号密码存在服务器端Mysql数据库中
 
+![Procedure](image/Procedure.jpg)
+![Demo](image/demo.png)
+
 ##### 1. 服务器端
 1. 创建 `socket`
 ```
